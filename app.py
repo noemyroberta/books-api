@@ -24,7 +24,7 @@ def update_book_by_id(book_id: int):
         if current_book.get('id') == book_id:
             books[index].update(new_book)
 
-    return jsonify("Livro", new_book.get('title'), 'alterado com sucesso!')
+    return jsonify(f"Livro {new_book.get('title')} alterado com sucesso!")
 
 
 app.run(port=5000, host='localhost', debug=True)
