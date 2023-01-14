@@ -9,7 +9,7 @@ def get_books():
     return jsonify(books)
 
 
-@app.route('/books/<int:id>', methods=['GET'])
+@app.route('/books/<int:book_id>', methods=['GET'])
 def get_book_by_id(book_id: int):
     for book in books:
         if book.get('id') == book_id:
