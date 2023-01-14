@@ -27,4 +27,13 @@ def update_book_by_id(book_id: int):
     return jsonify(f"Livro {new_book.get('title')} alterado com sucesso!")
 
 
+@app.route('/books/<int:book_id>', methods=['DELETE'])
+def delete_book(book_id: int):
+    for index, book in enumerate(books):
+        if book.get('id') == book_id:
+            del books[index]
+
+    return jsonify(f"Livro {book.get('title')} removido com sucesso!")
+
+
 app.run(port=5000, host='localhost', debug=True)
