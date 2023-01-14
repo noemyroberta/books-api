@@ -8,3 +8,5 @@ app = Flask(__name__)
 def get_books():
     return jsonify(books)
 
+
+app.run(port=5000, host='localhost', debug=True)
