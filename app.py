@@ -16,6 +16,19 @@ def get_book_by_id(book_id: int):
             return jsonify(book)
 
 
+@app.route('/books', methods=['POST'])
+def insert_book():
+    new_book = request.get_json()
+
+    current_last_id = books[-1].get('id')
+    id = current_last_id+1
+    new_book['id'] = id
+
+    books.append(new_book)
+
+    return jsonify(f"Livro {new_book.get('title')} adicionado com sucesso!")
+
+
 @app.route('/books/<int:book_id>', methods=['PUT'])
 def update_book_by_id(book_id: int):
     new_book = request.get_json()
